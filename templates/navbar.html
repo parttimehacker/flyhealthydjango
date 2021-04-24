@@ -1,0 +1,77 @@
+<!--Navbar-->
+<!-- <nav class="navbar navbar-expand-lg navbar-dark primary-color mb-5"> -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light mb-0">
+    <div class="container-fluid">
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="{% url 'users:landing' %}">FlyHealthy</a>
+
+        <!-- Collapse button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                aria-controls="basicExampleNav"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="basicExampleNav">
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto">
+                {% if title == "Internet of Things" %}
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'iot:iot' %}">Dashboard
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'iot:iot' %}">Dashboard
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                {% endif %}
+                {% if title == "Mobile Devices" %}
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'md:md' %}">Insider
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'md:md' %}">Insider</a>
+                    </li>
+                {% endif %}
+                {% if title == "Ad Hoc" %}
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'md:md' %}">Research
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'md:md' %}">Research</a>
+                    </li>
+                {% endif %}
+            </ul>
+            <!-- Links -->
+            <!-- login and logout buttons -->
+            <div class="my-1 mr-3">
+                {% if user.is_authenticated %}
+                    <a class="btn btn-outline-black btn-md my-2 my-sm-0 ml-3" href="{% url 'logout' %}">Logout</a>
+                    </div>
+                    <div class="my-1 mr-3">
+                    <!-- user icon -->
+                    <div class="black-text">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        {{ request.user }}
+                    </div>
+                {% else %}
+                    <a class="btn btn-outline-black btn-md my-2 my-sm-0 ml-3" href="{% url 'login' %}">Login</a>
+                {% endif %}
+                </div>
+        </div>
+        <!-- Collapsible content -->
+
+    </div>
+
+</nav>
+<!--/.Navbar-->
