@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Section(models.Model):
+class Section(models.TextChoices):
     WELCOME = 'WE', 'Welcome'
     BACKGROUND = 'MF', 'Main Floor'
     HEADLINES = 'HE', 'Headlines & Major Buzz'
@@ -29,7 +29,7 @@ class Volume(models.Model):
         return self.number
 
 
-class Frequency(models.Model):
+class Frequency(models.TextChoices):
     STATIC = 'ST', 'Static'
     DYNAMIC = 'DY', 'Dynamic'
 
