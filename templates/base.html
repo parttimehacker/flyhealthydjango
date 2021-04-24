@@ -19,14 +19,14 @@
 </head>
 
 <body>
-    {% if not form %}
-        {% include "navbar.html" %}
-    {% endif %}
-    <!-- Start your project here-->
-    <div class="container-fluid">
-        {% block content %}
-        {% endblock content %}
-    </div>
+{% if not form %}
+    {% include "navbar.html" %}
+{% endif %}
+<!-- Start your project here-->
+<div class="container-fluid">
+    {% block content %}
+    {% endblock content %}
+</div>
 <!-- /Start your project here-->
 <!-- SCRIPTS -->
 <!-- JQuery -->

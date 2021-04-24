@@ -28,9 +28,11 @@ class Volume(models.Model):
     def __str__(self):
         return self.number
 
+
 class Frequency(models.Model):
     STATIC = 'ST', 'Static'
     DYNAMIC = 'DY', 'Dynamic'
+
 
 class Content(models.Model):
     volume = models.ForeignKey(Volume, on_delete=models.CASCADE, default='')
