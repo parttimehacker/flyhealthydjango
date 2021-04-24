@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Welcome
+{% endblock %}
+{% block content %}
+    <div class="container-fluid pt-5">
+        <img class="img-fluid" src="{% static 'img/users/home_4.jpg' %}" alt="INSIDER">
+        <br>
+        <div class="text-center">
+            <h1 class="w3-xxlarge w3-text-white w3-wide">
+                <span class="w3-hide-small w3-text-light-grey">Welcome to <b>Health Pass Working Group INSIDER</b></span>
+            </h1>
+        </div>
+    </div>
+    <!-- Welcome -->
+    <script>
+        <!--
+        Hide
+        Script
+
+        function move_in(img_name, img_src) {
+            document[img_name].src = img_src;
+        }
+
+        function move_out(img_name, img_src) {
+            document[img_name].src = img_src;
+        }
+
+        //End Hide Script-->
+    </script>
+    <!-- Projects -->
+
+
+{% endblock content %}
