@@ -36,7 +36,7 @@ class Frequency(models.TextChoices):
 
 class Content(models.Model):
     volume = models.ForeignKey(Volume, on_delete=models.CASCADE, default='')
-    headline = models.CharField(default='')
+    headline = models.CharField( max_length=128, default='')
     posted = models.DateTimeField()
     description = models.TextField(default='')
     link = models.URLField(default='')

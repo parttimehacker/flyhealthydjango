@@ -1,9 +1,9 @@
 <!--Navbar-->
 <!-- <nav class="navbar navbar-expand-lg navbar-dark primary-color mb-5"> -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light mb-0">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary mb-0">
     <div class="container-fluid">
         <!-- Navbar brand -->
-        <a class="navbar-brand" href="{% url 'users:landing' %}">FlyHealthy</a>
+        <a class="navbar-brand" href="{% url 'users:landing' %}">parttimehacker.io</a>
 
         <!-- Collapse button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -16,39 +16,39 @@
         <div class="collapse navbar-collapse" id="basicExampleNav">
             <!-- Links -->
             <ul class="navbar-nav mr-auto">
-                {% if title == "Internet of Things" %}
+                {% if title == "Dashboard" %}
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'iot:iot' %}">Dashboard
+                        <a class="nav-link" href="{% url 'research:dashboard' %}">Dashboard
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'iot:iot' %}">Dashboard
+                        <a class="nav-link" href="{% url 'research:dashboard' %}">Dashboard
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                 {% endif %}
-                {% if title == "Mobile Devices" %}
+                {% if title == "Insider" %}
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'md:md' %}">Insider
+                        <a class="nav-link" href="{% url 'research:newsletter' %}">Insider
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'md:md' %}">Insider</a>
+                        <a class="nav-link" href="{% url 'research:newsletter' %}">Insider</a>
                     </li>
                 {% endif %}
-                {% if title == "Ad Hoc" %}
+                {% if title == "Research" %}
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'md:md' %}">Research
+                        <a class="nav-link" href="{% url 'users:dashboard' %}">Research
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'md:md' %}">Research</a>
+                        <a class="nav-link" href="{% url 'users:dashboard' %}">Research</a>
                     </li>
                 {% endif %}
             </ul>

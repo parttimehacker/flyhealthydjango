@@ -12,5 +12,5 @@ def dashboard_view(request):
 def newsletter_view(request):
     static_list = Content.objects.filter(frequency=Frequency.STATIC)
     dynamic_list = Content.objects.filter(frequency=Frequency.DYNAMIC)
-    context = {'static_list': static_list, 'dynamic_list': dynamic_list,'title': 'Newsletter'}
+    context = {'static_list': static_list, 'dynamic_list': dynamic_list,'title': 'INSIDER'}
     return render(request, 'research/newsletter.html', context)
