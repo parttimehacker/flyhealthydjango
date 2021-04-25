@@ -1,6 +1,6 @@
 <!--Navbar-->
 <!-- <nav class="navbar navbar-expand-lg navbar-dark primary-color mb-5"> -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-secondary mb-0">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light mb-0">
     <div class="container-fluid">
         <!-- Navbar brand -->
         <a class="navbar-brand" href="{% url 'users:landing' %}">parttimehacker.io</a>
@@ -29,26 +29,26 @@
                         </a>
                     </li>
                 {% endif %}
-                {% if title == "Insider" %}
+                {% if title == "INSIDER" %}
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'research:newsletter' %}">Insider
+                        <a class="nav-link" href="{% url 'research:insider' %}">INSIDER
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'research:newsletter' %}">Insider</a>
+                        <a class="nav-link" href="{% url 'research:insider' %}">INSIDER</a>
                     </li>
                 {% endif %}
                 {% if title == "Research" %}
                     <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'users:dashboard' %}">Research
+                        <a class="nav-link" href="{% url 'research:research' %}">Research
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'users:dashboard' %}">Research</a>
+                        <a class="nav-link" href="{% url 'research:research' %}">Research</a>
                     </li>
                 {% endif %}
             </ul>

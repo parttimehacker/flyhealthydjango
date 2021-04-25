@@ -17,8 +17,8 @@ class Section(models.TextChoices):
 
 
 class Volume(models.Model):
-    number = models.IntegerField()
-    published = models.DateTimeField()
+    number = models.IntegerField(primary_key=True)
+    published = models.DateField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -26,7 +26,7 @@ class Volume(models.Model):
         ordering = ['number', 'published', 'created_at']
 
     def __str__(self):
-        return self.number
+        return str(self.number)
 
 
 class Frequency(models.TextChoices):

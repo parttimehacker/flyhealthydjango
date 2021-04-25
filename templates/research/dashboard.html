@@ -9,21 +9,34 @@
         <br>
         <div class="text-center">
             <h1 class="w3-xxlarge w3-text-white w3-wide">
-                <span class="w3-hide-small w3-text-light-grey">Welcome to <b>Health Pass Working Group INSIDER</b></span>
+                <span class="w3-hide-small w3-text-light-grey">INSIDER Dashboard<</span>
             </h1>
         </div>
     </div>
 
-  <h1>Server List</h1>
-  {% if server_list %}
-  <ul>
-    {% for server in server_list %}
-      <li>
-        <a href="{{ server.name }}">{{ server.name }}</a> ({{server.ip_address}})
-      </li>
-    {% endfor %}
-  </ul>
-  {% else %}
-    <p>There are no servers in the DIYHA.</p>
-  {% endif %} 
+    <h1>INSIDER Volume Table</h1>
+    {% if volume_list %}
+        <ul>
+            {% for volume in volume_list %}
+                <li>
+                    <a href="{{ volume.number }}"></a>{{ volume.published }})
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no volumes in the INSIDER DB.</p>
+    {% endif %}
+    <br>
+    <h1>INSIDER POSTS</h1>
+    {% if content_list %}
+        <ul>
+            {% for content in content_list %}
+                <li>
+                    <a href="{{ content.headline }}"></a>{{ content.posted }})
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no volumes in the INSIDER DB.</p>
+    {% endif %}
 {% endblock %}

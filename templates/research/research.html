@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Dashboard
+{% endblock %}
+{% block content %}
+    <div class="container-fluid pt-5">
+        <img class="img-fluid" src="{% static 'img/research/health-pass-newsletter-banner_2.png' %}" alt="INSIDER">
+        <br>
+        <div class="text-center">
+            <h1 class="w3-xxlarge w3-text-white w3-wide">
+                <span class="w3-hide-small w3-text-light-grey">INSIDER Research<</span>
+            </h1>
+        </div>
+    </div>
+
+  <h1>INSIDER Volume Table</h1>
+  {% if volume_list %}
+  <ul>
+    {% for volume in volume_list %}
+      <li>
+          <a href="{{ volume.number }}"></a>{{ volume.published }})
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no volumes in the INSIDER DB.</p>
+  {% endif %} 
+{% endblock %}

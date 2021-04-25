@@ -30,8 +30,8 @@ def signup_view(request):
 @login_required
 def dashboard_view(request):
     researcher_list = Researcher.objects.filter(admin=request.user)
-    context = {'researcher_list': researcher_list}
-    return render(request, 'users/dashboard.html', context)
+    context = {'researcher_list': researcher_list, 'title':'Dashboard'}
+    return render(request, 'users/dashboard.html', context )
 
 
 def landing_view(request):
