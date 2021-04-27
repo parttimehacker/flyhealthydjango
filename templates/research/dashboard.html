@@ -5,38 +5,66 @@
 {% endblock %}
 {% block content %}
     <div class="container-fluid pt-5">
-        <img class="img-fluid" src="{% static 'img/research/health-pass-newsletter-banner_2.png' %}" alt="INSIDER">
+        <img class="img-fluid" src="{% static 'img/research/virus.jpg' %}" alt="Dashboard">
         <br>
         <div class="text-center">
-            <h1 class="w3-xxlarge w3-text-white w3-wide">
-                <span class="w3-hide-small w3-text-light-grey">INSIDER Dashboard<</span>
-            </h1>
+            <h3 class="w3-xxlarge w3-text-white w3-wide">
+                <span class="w3-hide-small w3-text-light-grey">Welcome to <b>Health Pass Working Group Dashboard</b></span>
+            </h3>
         </div>
     </div>
-
-    <h1>INSIDER Volume Table</h1>
+    <br>
+    <h5>INSIDER Volume Table</h5>
     {% if volume_list %}
-        <ul>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">Vol #</th>
+                <th scope="col">Published</th>
+            </tr>
+            </thead>
+            <tbody>
             {% for volume in volume_list %}
-                <li>
-                    <a href="{{ volume.number }}"></a>{{ volume.published }})
-                </li>
+                <tr>
+                    <td>{{ volume.number }}</td>
+                    <td>{{ volume.published }}</td>
+                </tr>
             {% endfor %}
-        </ul>
+            </tbody>
+        </table>
     {% else %}
         <p>There are no volumes in the INSIDER DB.</p>
     {% endif %}
     <br>
-    <h1>INSIDER POSTS</h1>
+    <h5>INSIDER Posting Table</h5>
     {% if content_list %}
-        <ul>
+        <table class="table table-hover table-bordered border-primary">
+            <thead>
+            <tr>
+                <th scope="col">Section</th>
+                <th scope="col">Volume#</th>
+                <th scope="col">Headline</th>
+                <th scope="col">Posted</th>
+                <th scope="col" style="width: 49%">Short Description</th>
+                <th scope="col">Link</th>
+                <th scope="col">Type</th>
+            </tr>
+            </thead>
+            <tbody>
             {% for content in content_list %}
-                <li>
-                    <a href="{{ content.headline }}"></a>{{ content.posted }})
-                </li>
+                <tr>
+                    <td>{{ content.get_section_display }}</td>
+                    <td>{{ content.volume }}</td>
+                    <td>{{ content.headline }}</td>
+                    <td>{{ content.posted }}</td>
+                    <td style="width: 40%;">{{ content.description }}</td>
+                    <td><a href="{{ content.link }}">{{ content.link }}</a></td>
+                    <td>{{ content.get_frequency_display }}</td>
+                </tr>
             {% endfor %}
-        </ul>
+            </tbody>
+        </table>
     {% else %}
-        <p>There are no volumes in the INSIDER DB.</p>
+        <p>There are no posts in the INSIDER DB.</p>
     {% endif %}
 {% endblock %}

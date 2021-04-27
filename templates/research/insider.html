@@ -4,26 +4,62 @@
     Newsletter
 {% endblock %}
 {% block content %}
-    <div class="container-fluid pt-5">
-        <img class="img-fluid" src="{% static 'img/research/health-pass-newsletter-banner_2.png' %}" alt="INSIDER">
+    <div class="container-fluid">
+        <img src="{% static 'img/research/health-pass-newsletter-banner_2.png' %}" alt="INSIDER">
+        <br><br>
+        <h5 style="color: dodgerblue"><b>Background</b></h5>
+        <p style="width: 800px">The Health Pass newsletter is designed to ensure that the ACI-NA membership is
+            kept informed of the latest digital health pass information from around the globe
+            in an organized and consistent manner. While our goal is to provide valuable and
+            timely information, we recognize that there is an abundance of resources and data
+            that may quickly become outdated due to the dynamic nature of this topic.</p>
+        <p style="width: 800px"><i>The Health Pass newsletter is designed to ensure that the ACI-NA membership is
+            kept informed of the latest digital health pass information from around the globe
+            in an organized and consistent manner. While our goal is to provide valuable and
+            timely information, we recognize that there is an abundance of resources and data
+            that may quickly become outdated due to the dynamic nature of this topic.</i></p>
+        <h5 style="color: dodgerblue"><b>Headlines & Major Buzz</b></h5>
+        {% if headline_list %}
+            {% for text in headline_list %}
+                <h6><b>{{ text.headline }}</b></h6>
+                <p style="width: 800px">{{ text.description }} <a href="{{ text.link }}">Read More>></a></p>
+            {% endfor %}
+        {% endif %}
         <br>
-        <div class="text-center">
-            <h1 class="w3-xxlarge w3-text-white w3-wide">
-                <span class="w3-hide-small w3-text-light-grey">Welcome to <b>Health Pass Working Group INSIDER</b></span>
-            </h1>
-        </div>
+        <hr>
+        <h5 style="color: dodgerblue"><b>Domestic Highlights</b></h5>
+        {% if domestic_list %}
+            {% for text in domestic_list %}
+                <h6><b>{{ text.headline }}</b></h6>
+                <p style="width: 800px">{{ text.description }} <a href="{{ text.link }}">Read More>></a></p>
+            {% endfor %}
+        {% endif %}
+        <br>
+        <hr>
+        <h5 style="color: dodgerblue"><b>From Around the Globe</b></h5>
+        {% if around_list %}
+            {% for text in around_list %}
+                <h6><b>{{ text.headline }}</b></h6>
+                <p style="width: 800px">{{ text.description }} <a href="{{ text.link }}">Read More>></a></p>
+            {% endfor %}
+        {% endif %}
+        <br>
+        <hr>
+        <h5 style="color: dodgerblue"><b>relevant Travel News</b></h5>
+            {% if relevant_list %}
+            {% for text in relevant_list %}
+                <h6><b>{{ text.headline }}</b></h6>
+                <p style="width: 800px">{{ text.description }} <a href="{{ text.link }}">Read More>></a></p>
+            {% endfor %}
+        {% endif %}
+        <br>
+        <hr>
+        <h5 style="color: dodgerblue"><b>From Around the Globe</b></h5>
+        <br>
+        <hr>
+        <h5 style="color: dodgerblue"><b>Featured Resource</b></h5>
+        <br>
+        <hr>
+        <h5 style="color: dodgerblue"><b>Industry Groups & Helpful Links</b></h5>
     </div>
-
-  <h1>Server List</h1>
-  {% if server_list %}
-  <ul>
-    {% for server in server_list %}
-      <li>
-        <a href="{{ server.name }}">{{ server.name }}</a> ({{server.ip_address}})
-      </li>
-    {% endfor %}
-  </ul>
-  {% else %}
-    <p>There are no servers in the DIYHA.</p>
-  {% endif %} 
 {% endblock %}
