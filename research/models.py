@@ -23,7 +23,7 @@ class Volume(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        ordering = ['number', 'published', 'created_at']
+        ordering = ['-number', 'published', 'created_at']
 
     def __str__(self):
         return str(self.number)
@@ -36,11 +36,12 @@ class Frequency(models.TextChoices):
 
 class Content(models.Model):
     volume = models.ForeignKey(Volume, on_delete=models.CASCADE, default='')
-    headline = models.CharField( max_length=128, default='')
+    headline = models.CharField( max_length=256, default='')
     posted = models.DateField()
     description = models.TextField(default='')
+    source = models.CharField( max_length=256, default='')
     link = models.URLField(default='')
-    note = models.TextField(default='')
+    member = models.CharField( max_length=256, default='')
 
     section = models.CharField(
         max_length=2,
@@ -58,4 +59,4 @@ class Content(models.Model):
         return self.headline
 
     class Meta:
-        ordering = ['volume', 'posted', 'headline']
+        ordering = ['-volume', 'posted', 'headline']

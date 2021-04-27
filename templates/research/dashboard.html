@@ -16,10 +16,10 @@
     <br>
     <h5>INSIDER Volume Table</h5>
     {% if volume_list %}
-        <table class="table table-hover">
+        <table class="table table-hover table-bordered border-primary w-25 p-3">
             <thead>
             <tr>
-                <th scope="col">Vol #</th>
+                <th scope="col" style="text-align: center">Vol #</th>
                 <th scope="col">Published</th>
             </tr>
             </thead>
@@ -42,24 +42,20 @@
             <thead>
             <tr>
                 <th scope="col">Section</th>
-                <th scope="col">Volume#</th>
+                <th scope="col" style="text-align: center">Volume#</th>
                 <th scope="col">Headline</th>
                 <th scope="col">Posted</th>
-                <th scope="col" style="width: 49%">Short Description</th>
-                <th scope="col">Link</th>
-                <th scope="col">Type</th>
+                <th scope="col">Short Description</th>
             </tr>
             </thead>
             <tbody>
             {% for content in content_list %}
                 <tr>
-                    <td>{{ content.get_section_display }}</td>
-                    <td>{{ content.volume }}</td>
-                    <td>{{ content.headline }}</td>
-                    <td>{{ content.posted }}</td>
-                    <td style="width: 40%;">{{ content.description }}</td>
-                    <td><a href="{{ content.link }}">{{ content.link }}</a></td>
-                    <td>{{ content.get_frequency_display }}</td>
+                    <td width="15%">{{ content.get_section_display }}</td>
+                    <td width="5%" style="text-align: center">{{ content.volume }}</td>
+                    <td width="30%">{{ content.headline }}</td>
+                    <td width="10%">{{ content.posted }}</td>
+                    <td width="40%">{{ content.description }}</td>
                 </tr>
             {% endfor %}
             </tbody>
