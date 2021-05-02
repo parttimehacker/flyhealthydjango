@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="bitnami@44.238.29.160:22" remoteFilesAllowedToDisappearOnAutoupload="false">
+  <component name="PublishConfigData" autoUpload="Always" serverName="bitnami@23.20.208.150:22" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
+      <paths name="bitnami@23.20.208.150:22">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/opt/bitnami/projects" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="bitnami@44.238.29.160:22">
         <serverdata>
           <mappings>
@@ -10,5 +17,6 @@
         </serverdata>
       </paths>
     </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>

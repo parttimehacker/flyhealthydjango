@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Volume CRUD
+{% endblock %}
+{% block content %}
+    <div class="container-fluid pt-5">
+        <img class="img-fluid" src="{% static 'img/research/health-pass-newsletter-banner_2.png' %}" alt="INSIDER">
+        <br>
+        <div class="text-center">
+            <h1 class="w3-xxlarge w3-text-white w3-wide">
+                <span class="w3-hide-small w3-text-light-grey">INSIDER Research<</span>
+            </h1>
+        </div>
+    </div>
+
+<div class="col-md-4">
+		<!-- Default form register -->
+		<form class="border mt-5 border-secondary text-center p-3" method="post">
+			{% csrf_token %}
+		    <p class="h4 mb-4 text-secondary text-center">Sign up</p>
+
+		    <!-- {{ form.as_p }} -->
+
+			{% for field in form %}
+		    <p>
+	        	{{ field.label_tag }}
+	        	{{ field }}
+		        <!-- {% if field.help_text %}
+		          <small style="color: grey">{{ field.help_text }}</small>
+		        {% endif %} -->
+		        {% for error in field.errors %}
+		          <p style="color: #ff0000">{{ error }}</p>
+		        {% endfor %}
+		    </p>
+		    {% endfor %}
+
+		    <!-- Sign up button -->
+		    <button class="btn btn-secondary my-4 btn-block" type="submit">Sign up</button>
+
+		    <!-- Social register -->
+		    <p>or sign up with:</p>
+
+		    <a type="button" class="light-blue-text mx-2">
+		        <i class="fa fa-facebook"></i>
+		    </a>
+		    <a type="button" class="light-blue-text mx-2">
+		        <i class="fa fa-twitter"></i>
+		    </a>
+		    <a type="button" class="light-blue-text mx-2">
+		        <i class="fa fa-linkedin"></i>
+		    </a>
+		    <a type="button" class="light-blue-text mx-2">
+		        <i class="fa fa-github"></i>
+		    </a>
+
+		    <hr>
+
+		    <!-- Terms of service -->
+		    <p>By clicking
+		        <em>Sign up</em> you agree to our
+		        <a href="" target="_blank">terms of service</a>
+		    </p>
+		</form>
+		<!-- Default form register -->
+	</div>
+{% endblock %}
