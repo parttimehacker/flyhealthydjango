@@ -15,14 +15,14 @@ class ContentAdmin(admin.ModelAdmin):
         get_data = super(ContentAdmin, self).get_changeform_initial_data(request)
         get_data['created_by'] = request.user.pk
         return get_data
-    list_display = ('volume', 'section', 'headline', 'posted', 'description')
+    list_display = ('volume', 'section', 'headline', 'posted', 'description', 'created_at')
 
 
 admin.site.register(Content, ContentAdmin)
 
 
 class BoilerplateAdmin(admin.ModelAdmin):
-    list_display = ('volume', 'active', 'posted', 'headline', 'description')
+    list_display = ('volume', 'active', 'posted', 'section', 'headline', 'description')
 
 
 admin.site.register(Boilerplate, BoilerplateAdmin)

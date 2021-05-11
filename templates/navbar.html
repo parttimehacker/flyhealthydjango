@@ -16,6 +16,28 @@
         <div class="collapse navbar-collapse" id="basicExampleNav">
             <!-- Links -->
             <ul class="navbar-nav mr-auto">
+                {% if title == "INSIDER" %}
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'research:insider' %}">INSIDER
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'research:insider' %}">INSIDER</a>
+                    </li>
+                {% endif %}
+                {% if title == "Working Group" %}
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'users:workinggroup' %}">Working Group
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'users:workinggroup' %}">Working Group</a>
+                    </li>
+                {% endif %}
                 {% if title == "Dashboard" %}
                     <li class="nav-item active">
                         <a class="nav-link" href="{% url 'research:dashboard' %}">Dashboard
@@ -27,17 +49,6 @@
                         <a class="nav-link" href="{% url 'research:dashboard' %}">Dashboard
                             <span class="sr-only">(current)</span>
                         </a>
-                    </li>
-                {% endif %}
-                {% if title == "INSIDER" %}
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'research:insider' %}">INSIDER
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'research:insider' %}">INSIDER</a>
                     </li>
                 {% endif %}
                 {% if title == "Draft" %}

@@ -14,7 +14,7 @@ class Section(models.TextChoices):
 
 class StaticText(models.TextChoices):
     WELCOME = 'WE', 'Welcome'
-    BACKGROUND = 'MF', 'Background'
+    BACKGROUND = 'BA', 'Background'
     DISCLAIMER = 'DI', 'Disclaimer'
     ABOUT = 'AB', 'About Us'
     GROUP = 'GR', 'Meet the Working Group'
@@ -43,6 +43,8 @@ class Content(models.Model):
     source = models.CharField(max_length=256, default='')
     link = models.URLField(default='')
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     section = models.CharField(
         max_length=2,
@@ -64,6 +66,8 @@ class Boilerplate(models.Model):
     posted = models.DateField()
     headline = models.CharField(max_length=256, default='')
     description = models.TextField(default='')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     section = models.CharField(
         max_length=2,

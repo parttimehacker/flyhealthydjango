@@ -6,6 +6,10 @@ from django.shortcuts import render, redirect
 from users.models import Researcher
 from .forms import SignUpForm
 
+from rest_framework import viewsets
+from .serializers import ResearcherSerializer
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 def signup_view(request):
     if request.user.is_authenticated:
@@ -33,6 +37,30 @@ def dashboard_view(request):
     context = {'researcher_list': researcher_list, 'title':'Dashboard'}
     return render(request, 'users/dashboard.html', context )
 
+@login_required
+def working_group_view(request):
+    wg_list = Researcher.objects.all().order_by('name')
+    cochairs_list = wg_list.filter(role='CO')
+    airports_list = wg_list.filter(role='AI')
+    associates_list = wg_list.filter(role='AS')
+    context = {'cochairs_list': cochairs_list, 'airports_list': airports_list, 'associates_list':associates_list,
+               'title': 'Working Group'}
+    return render(request, 'users/workinggroup.html', context)
+
 
 def landing_view(request):
     return render(request, 'users/landing.html')
+
+class ResearcherViewSet(viewsets.ModelViewSet):
+    queryset = Researcher.objects.all().order_by('name')
+    serializer_class = ResearcherSerializer
+
+@csrf_exempt
+def researcher_view(request):
+    """
+    List all code snippets, or create a new snippet.
+    """
+    if request.method == 'GET':
+        content = Researcher.objects.all()
+        serializer = ResearcherSerializer(content, many=True)
+        return JsonResponse(serializer.data, safe=False)
